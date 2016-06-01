@@ -1,0 +1,140 @@
+<html>
+	<head>
+	<script>
+		<!--
+			var bx=0; // Initially it is to the right of the sun
+			var gx=0;
+			var yx=0;
+			var bstart = false; //Initially it should be at rest
+			var gstart = false;
+			var ystart = false;
+			function revolve() {
+				document.getElementById('bp').style.left = -25 + (225 * Math.cos((bx*Math.PI))) + 'px'; // Motion of a circle as x and y varying as cos and sine, -25 for center of sun
+				document.getElementById('bp').style.top = -25 + (45 * Math.sin((bx*Math.PI))) + 'px';
+				document.getElementById('bp').style.zIndex = parseInt(document.getElementById('bp').style.top) + 25;
+				if(bstart == true) {
+					bx = bx + 1.27*0.001; //Random speed of motion
+				}
+				document.getElementById('gp').style.left = -13 + (100 * Math.cos((gx*Math.PI))) + 'px';
+				document.getElementById('gp').style.top = -13 + (20 * Math.sin((gx*Math.PI))) + 'px';
+				document.getElementById('gp').style.zIndex = parseInt(document.getElementById('gp').style.top) + 13;
+				if(gstart == true) {
+					gx = gx + 3.21*0.001; //Random speed of motion
+				}
+				document.getElementById('yp').style.left = -20 + (150 * Math.cos((yx*Math.PI))) + 'px';
+				document.getElementById('yp').style.top = -20 + (30 * Math.sin((yx*Math.PI))) + 'px';
+				document.getElementById('yp').style.zIndex = parseInt(document.getElementById('yp').style.top) + 20;
+				if(ystart == true) {
+					yx = yx - 2.13*0.001; //Random speed of motion in opposite direction (minus sign)
+				}
+				
+				setTimeout(revolve,10);
+			}
+			function startBlue() {
+				bstart = true; //Starting a planet
+			}
+			function stopBlue() {
+				bstart = false; //Stopping a planet
+			}
+			function resetBlue() {
+				bx=0; //Resetting the planet to initial position
+			}
+			function startGreen() {
+				gstart = true;
+			}
+			function stopGreen() {
+				gstart = false;
+			}
+			function resetGreen() {
+				gx=0;
+			}
+			function startYellow() {
+				ystart = true;
+			}
+			function stopYellow() {
+				ystart = false;
+			}
+			function resetYellow() {
+				yx=0;
+			}
+			window.onload = revolve;
+		//-->
+	</script>
+	<style type="text/css">
+		img {
+			border-radius:50%;
+			position:absolute;
+		}
+		.sun {
+			height:126px;
+			width:126px;
+			left:-63px;
+			top:-63px;
+			z-index:0;
+		}
+		.rel {
+			margin-left:50%;
+			margin-top:25%;
+			position:absolute;
+		}
+		.bp {
+			height:50px;
+			width:50px;
+			left:200px;
+			top:-25px;
+		}
+		.gp {
+			height:26px;
+			width:26px;
+			left:87px;
+			top:-13px;
+		}
+		.yp {
+			height:40px;
+			width:40px;
+			left:130px;
+			top:-20px;
+		}
+		button {
+			border: none;
+			color: black;
+			padding: 7px 7px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+		}
+		button:hover {
+			opacity:0.8;
+		}
+		.blueP {
+			background-color:blue;
+		}
+		.greenP {
+			background-color:green;
+		}
+		.yellowP {
+			background-color:yellow;
+		}
+	</style>
+	</head>
+	<body bgcolor="black">
+		<div class="btncontainer">
+			<button onclick = "startBlue()" class="blueP">Start Blue Planet</button>
+			<button onclick = "stopBlue()" class="blueP">Stop Blue Planet</button>
+			<button onclick = "resetBlue()" class="blueP">Reset Blue Planet</button>
+			<button onclick = "startGreen()" class="greenP">Start Green Planet</button>
+			<button onclick = "stopGreen()" class="greenP">Stop Green Planet</button>
+			<button onclick = "resetGreen()" class="greenP">Reset Green Planet</button>
+			<button onclick = "startYellow()" class="yellowP">Start Yellow Planet</button>
+			<button onclick = "stopYellow()" class="yellowP">Stop Yellow Planet</button>
+			<button onclick = "resetYellow()" class="yellowP">Reset Yellow Planet</button>
+		</div>
+		<div class="rel">
+			<img src="Sun.jpg" class="sun">
+			<img src="bluePlanet.jpg" id="bp" class="planet bp" />
+			<img src="GreenPlanet.jpg" id="gp" class="planet gp" />
+			<img src="YellowPlanet.jpg" id="yp" class="planet yp" />
+		</div>
+	</body>
+</html>

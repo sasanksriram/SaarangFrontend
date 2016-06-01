@@ -1,0 +1,69 @@
+<html>
+<head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+	body {
+		margin-top:20px;
+	}
+	span {
+		color:red;
+	}
+</style>
+</head>
+<body>
+	<form id = "myForm" name="myForm" role="form" ng-app>
+	<div ng-class="{ 'has-error' : myForm.firstName.$invalid && myForm.firstName.$touched}" id = "firstDiv" class = "form-group col-sm-6">
+		<label class = "control-label">
+			First Name: <span id="firstNames" ng-show="myForm.firstName.$invalid && myForm.firstName.$touched">Please enter a value.</span>
+		</label>
+		<input class="form-control inp" id="firstName" name="firstName" ng-model="firstName" type="textbox" placeholder = "Enter your first name" required>
+	</div>
+	
+	<div ng-class="{ 'has-error' : myForm.lastName.$invalid && myForm.lastName.$touched}" id = "secondDiv" class = "form-group col-sm-6">
+		<label class = "control-label">
+			Last Name: <span id="lastNames" ng-show="myForm.lastName.$invalid && myForm.lastName.$touched">Please enter a value.</span>
+		</label>
+		<input class="form-control inp" id="lastName" name="lastName" ng-model="lastName" type="textbox" placeholder = "Enter your last name" required>
+	</div>
+	
+	<div ng-class="{ 'has-error' : myForm.phoneNumber.$invalid && myForm.phoneNumber.$touched}" id = "thirdDiv" class = "form-group col-sm-6">
+		<label class = "control-label">
+			Phone Number: <span id="phoneNumbers" ng-show="myForm.phoneNumber.$invalid && myForm.phoneNumber.$touched">Please enter a valid number.</span>
+		</label>
+		<input class="form-control inp" id="phoneNumber" name="phoneNumber" ng-model="phoneNumber"  ng-minlength="10" ng-maxlength="10" type="number" placeholder = "Enter your phone number" required>	
+	</div>
+	
+	<div ng-class="{ 'has-error' : myForm.eMail.$invalid && myForm.eMail.$touched}" id = "fourthDiv" class = "form-group col-sm-6">
+		<label class = "control-label">
+			Email: <span id="eMails" ng-show="myForm.eMail.$invalid && myForm.eMail.$touched">Please enter a valid Email ID.</span>
+		</label>
+		<input class="form-control inp" id="eMail" name="eMail" ng-model="eMail" type="email" placeholder = "Enter your Email ID" required>
+	</div>
+	
+	<div ng-class="{ 'has-error' : myForm.collegeName.$invalid && myForm.collegeName.$touched}" id = "fifthDiv" class = "form-group col-sm-6">
+		<label class = "control-label">
+			School/College Name <span id="collegeNames" ng-show="myForm.collegeName.$invalid && myForm.collegeName.$touched">Please enter the name of your school/college.</span>
+		</label>
+		<input class="form-control inp" id="collegeName" name="collegeName" ng-model="collegeName" type="textbox"  placeholder = "Enter your school/college name" required>
+	</div>
+	
+	<div id = "sixthDiv" class = "form-group col-sm-6">
+		<label class = "control-label">
+			Event: <span id="events" ng-show="saarangEvent == Event0 && myForm.saarangEvent.$touched">Please select an event.</span>
+		</label>
+		<select class="form-control inp" id="saarangEvent" name="saarangEvent" ng-model="saarangEvent">
+			<option value="Event0" selected disabled>Select your event</option>
+			<option value="Event1">Travel and Living Quiz</option>
+			<option value="Event2">India Quiz</option>
+			<option value="Event3">Lone Wolf</option>
+			<option value="Event4">Buzzer Quiz</option>
+			<option value="Event5">SpEnt Quiz</option>
+		</select>
+	</div>
+	
+	<div class = "form-group col-sm-12" id="buttonDivision">
+		<input class="form-control btn-success" ng-disabled="myForm.$invalid || saarangEvent == Event0" id="submit" type="button" value="Submit"/>
+	</div>
+</body>
+</html>
